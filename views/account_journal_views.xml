@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_account_journal_form_custom_header" model="ir.ui.view">
+            <field name="name">account.journal.form.custom.header</field>
+            <field name="model">account.journal</field>
+            <field name="priority">1</field>
+            <field name="inherit_id" ref="account.view_account_journal_form"/>
+            <field name="arch" type="xml">
+                 <xpath expr="//page[@name='advanced_settings']" position="inside">
+                      <group>
+                          <group string="Custom header and Footer">
+                                <field name="is_custom_header"/>
+                                <field name="doc_logo" widget="image" class="oe_avatar" attrs="{'invisible': [('is_custom_header', '=', False)]}"/>
+                                <field name="doc_header" attrs="{'invisible': [('is_custom_header', '=', False)]}"/>
+                                <field name="doc_footer" attrs="{'invisible': [('is_custom_header', '=', False)]}"/>
+                          </group>
+
+                          <group string="Custom Sequence">
+                                <field name="use_own_sequence"/>
+                                <field name="sequence_type" attrs="{'invisible': [('use_own_sequence', '=', False)]}"/>
+
+
+                          </group>
+
+
+                      </group>
+                 </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

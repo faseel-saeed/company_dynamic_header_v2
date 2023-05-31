@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="address_layout_journal_custom_header"  inherit_id="web.address_layout">
+        <xpath expr='//div[@name="address"]' position="replace">
+            <div name="address" t-att-class="colclass">
+                    <t t-esc="address"/>
+            </div>
+        </xpath>
+    </template>
+
+
+    <template id="external_layout_striped_journal_custom_header" inherit_id="web.external_layout_striped">
+        <xpath expr='//img[@t-if="company.logo"]' position="replace">
+            <t t-if="'journal_id' in o and o.journal_id and o.journal_id.is_custom_header == True and o.journal_id.doc_logo"><img t-att-src="image_data_uri(o.journal_id.doc_logo)" class="float-start" alt="Logo"/></t>
+            <t t-elif="company.logo"><img t-att-src="image_data_uri(company.logo)" class="float-start" alt="Logo"/></t>
+        </xpath>
+
+        <xpath expr='//span[@t-if="company.company_details"]' position="replace">
+            <t t-if="'journal_id' in o and o.journal_id and o.journal_id.is_custom_header == True"><span t-field="o.journal_id.doc_header"/></t>
+            <t t-elif="company.company_details"><span t-field="company.company_details"/></t>
+        </xpath>
+
+        <xpath expr='//div[@t-field="company.report_footer"]' position="replace">
+            <t t-if="'journal_id' in o and o.journal_id and o.journal_id.is_custom_header == True"><div t-field="o.journal_id.doc_footer"/></t>
+            <t t-else=""><div t-field="company.report_footer"/></t>
+        </xpath>
+    </template>
+
+
+    <template id="external_layout_boxed_journal_custom_header" inherit_id="web.external_layout_boxed">
+        <xpath expr='//img[@t-if="company.logo"]' position="replace">
+            <t t-if="'journal_id' in o and o.journal_id and o.journal_id.is_custom_header == True and o.journal_id.doc_logo"><img t-att-src="image_data_uri(o.journal_id.doc_logo)" class="float-start" alt="Logo"/></t>
+            <t t-elif="company.logo"><img t-att-src="image_data_uri(company.logo)" class="float-start" alt="Logo"/></t>
+        </xpath>
+
+        <xpath expr='//span[@t-if="company.company_details"]' position="replace">
+            <t t-if="'journal_id' in o and o.journal_id and o.journal_id.is_custom_header == True"><span t-field="o.journal_id.doc_header"/></t>
+            <t t-elif="company.company_details"><span t-field="company.company_details"/></t>
+        </xpath>
+
+        <xpath expr='//div[@t-field="company.report_footer"]' position="replace">
+            <t t-if="'journal_id' in o and o.journal_id and o.journal_id.is_custom_header == True"><div t-field="o.journal_id.doc_footer"/></t>
+            <t t-else=""><div t-field="company.report_footer"/></t>
+        </xpath>
+    </template>
+
+
+    <template id="external_layout_bold_journal_custom_header" inherit_id="web.external_layout_bold">
+        <xpath expr='//img[@t-if="company.logo"]' position="replace">
+
+            <t t-if="'journal_id' in o and o.journal_id and o.journal_id.is_custom_header == True and o.journal_id.doc_logo"><img t-att-src="image_data_uri(o.journal_id.doc_logo)" class="float-start" alt="Logo"/></t>
+            <t t-elif="company.logo"><img t-att-src="image_data_uri(company.logo)" class="float-start" alt="Logo"/></t>
+        </xpath>
+
+        <xpath expr='//span[@t-if="company.company_details"]' position="replace">
+            <t t-if="'journal_id' in o and o.journal_id and o.journal_id.is_custom_header == True"><span t-field="o.journal_id.doc_header"/></t>
+            <t t-elif="company.company_details"><span t-field="company.company_details"/></t>
+        </xpath>
+
+        <xpath expr='//span[@t-field="company.report_footer"]' position="replace">
+            <t t-if="'journal_id' in o and o.journal_id and o.journal_id.is_custom_header == True"><span t-field="o.journal_id.doc_footer"/></t>
+            <t t-else=""><span t-field="company.report_footer"/></t>
+
+        </xpath>
+
+    </template>
+
+
+    <template id="external_layout_standard_journal_custom_header" inherit_id="web.external_layout_standard">
+        <xpath expr='//img[@t-if="company.logo"]' position="replace">
+            <t t-if="'journal_id' in o and o.journal_id and o.journal_id.is_custom_header == True and o.journal_id.doc_logo"><img t-att-src="image_data_uri(o.journal_id.doc_logo)" style="max-height: 45px;" alt="Logo"/></t>
+            <t t-elif="company.logo"><img t-att-src="image_data_uri(company.logo)" style="max-height: 45px;" alt="Logo"/></t>
+        </xpath>
+
+        <xpath expr='//span[@t-if="company.company_details"]' position="replace">
+            <t t-if="'journal_id' in o and o.journal_id and o.journal_id.is_custom_header == True"><span t-field="o.journal_id.doc_header"/></t>
+            <t t-elif="company.company_details"><span t-field="company.company_details"/></t>
+        </xpath>
+
+        <xpath expr='//div[@t-field="company.report_footer"]' position="replace">
+            <t t-if="'journal_id' in o and o.journal_id and o.journal_id.is_custom_header == True"><div t-field="o.journal_id.doc_footer"/></t>
+            <t t-else=""><div t-field="company.report_footer"/></t>
+
+        </xpath>
+
+    </template>
+
+
+
+
+</odoo>
